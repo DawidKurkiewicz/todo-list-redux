@@ -107,7 +107,7 @@ export default (state = INITIAL_STATE, action) => {
         case FILTER_INPUT_CHANGE:
             return {
                 ...state,
-                filter: action.text,
+                filterTodo: action.text,
                 visibleToDos: state.allToDos.filter(task => task.text.toLowerCase().replace(/\s/g, '')
                     .includes(action.text.toLowerCase().replace(/\s/g, ''))
                 )

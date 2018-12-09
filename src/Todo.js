@@ -2,10 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import { addTaskInputChangeAction, addNewTaskToDbAsyncAction, toggleToDoAsyncAction, deleteTaskAsyncAction,
-    filterInputChangeAction, showCompletedAction, showUncompletedAction, showAllAction } from './state/toDo'
+import {
+    addTaskInputChangeAction, addNewTaskToDbAsyncAction, toggleToDoAsyncAction, deleteTaskAsyncAction,
+    filterInputChangeAction, showCompletedAction, showUncompletedAction, showAllAction
+} from './state/toDo'
 import { List, ListItem } from 'material-ui/List'
-import { Checkbox } from 'material-ui'
 import DeleteIcon from 'material-ui/svg-icons/action/delete'
 import IconButton from 'material-ui/IconButton'
 
@@ -51,18 +52,13 @@ const ToDo = props => (
         <List>
             {
                 props._visibleToDos &&
-                props._visibleToDos.map ?
-                props._visibleToDos.map(todo =>
+                    props._visibleToDos.map ?
+                    props._visibleToDos.map(todo =>
                         <ListItem
                             primaryText={todo.text}
                             key={todo.key}
+                            onClick={() => props._toggleToDoAsyncAction(todo)}
                             style={todo.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' }}
-                            leftCheckbox={
-                                <Checkbox
-                                    defaultChecked={todo.completed}
-                                    onCheck={() => props._toggleToDoAsyncAction(todo)}
-                                />
-                            }
                             rightIconButton={
                                 <IconButton
                                     onClick={() => props._deleteTaskAsyncAction(todo.key)}

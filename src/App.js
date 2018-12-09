@@ -1,12 +1,15 @@
 import React from 'react'
 import ToDo from './Todo'
+import Auth from './Auth'
+
 
 
 
 const App = props => (
-  <div>
-    < ToDo />
-  </div>
+  <Auth>
+    <ToDo />
+  </Auth>
+
 )
 
 export default App

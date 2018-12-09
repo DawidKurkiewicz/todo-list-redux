@@ -1,4 +1,4 @@
-import { auth, database, googleProvider } from '../firebaseConfig'
+import { auth, googleProvider } from '../firebaseConfig'
 import { getTasksListFromDbAsyncAction } from './toDo';
 
 

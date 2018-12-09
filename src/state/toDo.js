@@ -14,7 +14,7 @@ const SHOW_ALL = 'toDo/SHOW_ALL'
 const INITIAL_STATE = {
     allToDos: [],
     visibleToDos: [],
-    filterToDo: '',
+    filterTodo: '',
     newToDo: ''
 }
 
@@ -116,19 +116,19 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 visibleToDos: state.allToDos.filter(task => task.text.toLowerCase().replace(/\s/g, '')
-                    .includes(state.filter.toLowerCase().replace(/\s/g, '')))
+                    .includes(state.filterTodo.toLowerCase().replace(/\s/g, '')))
             }
         case SHOW_COMPLETED:
             return {
                 ...state,
                 visibleToDos: state.allToDos.filter(task => task.completed === true).filter(task => task.text.toLowerCase().replace(/\s/g, '')
-                    .includes(state.filter.toLowerCase().replace(/\s/g, '')))
+                    .includes(state.filterTodo.toLowerCase().replace(/\s/g, '')))
             }
         case SHOW_UNCOMPLETED:
             return {
                 ...state,
                 visibleToDos: state.allToDos.filter(task => task.completed === false).filter(task => task.text.toLowerCase().replace(/\s/g, '')
-                    .includes(state.filter.toLowerCase().replace(/\s/g, '')))
+                    .includes(state.filterTodo.toLowerCase().replace(/\s/g, '')))
             }
         default:
             return state

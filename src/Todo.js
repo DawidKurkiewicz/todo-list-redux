@@ -14,7 +14,8 @@ import IconButton from 'material-ui/IconButton'
 const ToDo = props => (
     <div>
         <TextField
-            value={props._newTaskText}
+            hintText='Add task'
+            value={props._newToDo}
             onChange={props._addTaskInputChangeAction}
         />
         <RaisedButton
@@ -41,28 +42,28 @@ const ToDo = props => (
         <List>
             {
                 props._allToDos &&
-                props._allToDos.map ?
-                props._allToDos.map(todo =>
-                    <ListItem
-                        primaryText={todo.text}
-                        key={todo.key}
-                        style={ todo.completed ? {textDecoration: 'line-through'} : {textDecoration: 'none'}}
-                        leftCheckbox={
-                            <Checkbox
-                                defaultChecked={todo.completed}
-                                onCheck={() => props._toggleToDoAsyncAction(todo)}
-                            />
-                        }
-                        rightIconButton={
-                            <IconButton
-                            onClick={() => props._deleteTaskAsyncAction(todo.key)}
-                            >
-                                <DeleteIcon />
-                            </IconButton>
-                        }
-                    />
-                )
-                : null
+                    props._allToDos.map ?
+                    props._allToDos.map(todo =>
+                        <ListItem
+                            primaryText={todo.text}
+                            key={todo.key}
+                            style={todo.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' }}
+                            leftCheckbox={
+                                <Checkbox
+                                    defaultChecked={todo.completed}
+                                    onCheck={() => props._toggleToDoAsyncAction(todo)}
+                                />
+                            }
+                            rightIconButton={
+                                <IconButton
+                                    onClick={() => props._deleteTaskAsyncAction(todo.key)}
+                                >
+                                    <DeleteIcon />
+                                </IconButton>
+                            }
+                        />
+                    )
+                    : null
             }
         </List>
     </div>
@@ -81,4 +82,4 @@ const mapDispatchToProps = dispatch => ({
 
 
 })
-export default connect(mapStateToProps, mapDispatchToProps)(ToDo) 
+export default connect(mapStateToProps, mapDispatchToProps)(ToDo)

@@ -30,10 +30,7 @@ export const toggleToDoAsyncAction = (task) => (dispatch, getState) => {
         completed: !task.completed
     })
 }
-const showingTaskListAction = tasks => ({
-    type: SHOWING_TASKS,
-    tasks
-})
+
 
 export const getTasksListFromDbAsyncAction = () => (dispatch, getState) => {
     const uuid = getState().auth.user.uid
@@ -62,6 +59,10 @@ export const deleteTaskAsyncAction = (key) => (dispatch, getState) => {
 export const addTaskInputChangeAction = text => ({
     type: ADD_TASK_INPUT_CHANGE,
     text
+})
+const showingTaskListAction = tasks => ({
+    type: SHOWING_TASKS,
+    tasks
 })
 const cleanAddInputAction = () => ({
     type: CLEAN_ADD_INPUT

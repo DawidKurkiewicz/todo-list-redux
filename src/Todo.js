@@ -17,79 +17,86 @@ const style = {
 
 
 const ToDo = props => (
-    <div>
-        <TextField
-            style={style}
-            hintText='Add task'
-            value={props._newToDo}
-            onChange={props._addTaskInputChangeAction}
-        />
-        <RaisedButton
-            style={style}
-
-            label='Add task'
-            primary={true}
-            onClick={props._addNewTaskToDbAsyncAction}
-
-        />
-        < br />
-
-        <TextField
-            style={style}
-
-            hintText='Find task'
-            onChange={props._filterInputChangeAction}
-
-        />
-        < br />
-        <RaisedButton
-            style={style}
-
-            label='All tasks'
-            primary={true}
-            onClick={props._showAllAction}
-
-        />
-
-        <RaisedButton
-            style={style}
-
-            label='Uncompleted tasks'
-            primary={true}
-            onClick={props._showUncompletedAction}
-
-        />
-
-        <RaisedButton
-            style={style}
-
-            label='Completed tasks'
-            primary={true}
-            onClick={props._showCompletedAction}
-
-        />
-        <List>
+    <div
+        style={
             {
-                props._visibleToDos &&
-                    props._visibleToDos.map ?
-                    props._visibleToDos.map(todo =>
-                        <ListItem
-                            primaryText={todo.text}
-                            key={todo.key}
-                            onClick={() => props._toggleToDoAsyncAction(todo)}
-                            style={todo.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' }}
-                            rightIconButton={
-                                <IconButton
-                                    onClick={() => props._deleteTaskAsyncAction(todo.key)}
-                                >
-                                    <DeleteIcon />
-                                </IconButton>
-                            }
-                        />
-                    )
-                    : null
-            }
-        </List>
+                display: 'flex',
+                justifyContent: 'center'
+            }}>
+        <div>
+            <TextField
+                style={style}
+                hintText='Add task'
+                value={props._newToDo}
+                onChange={props._addTaskInputChangeAction}
+            />
+            <RaisedButton
+                style={style}
+
+                label='Add task'
+                primary={true}
+                onClick={props._addNewTaskToDbAsyncAction}
+
+            />
+            < br />
+
+            <TextField
+                style={style}
+
+                hintText='Find task'
+                onChange={props._filterInputChangeAction}
+
+            />
+            < br />
+            <RaisedButton
+                style={style}
+
+                label='All tasks'
+                primary={true}
+                onClick={props._showAllAction}
+
+            />
+
+            <RaisedButton
+                style={style}
+
+                label='Uncompleted tasks'
+                primary={true}
+                onClick={props._showUncompletedAction}
+
+            />
+
+            <RaisedButton
+                style={style}
+
+                label='Completed tasks'
+                primary={true}
+                onClick={props._showCompletedAction}
+
+            />
+            <List>
+                {
+                    props._visibleToDos &&
+                        props._visibleToDos.map ?
+                        props._visibleToDos.map(todo =>
+                            <ListItem
+                                primaryText={todo.text}
+                                key={todo.key}
+                                onClick={() => props._toggleToDoAsyncAction(todo)}
+                                style={todo.completed ? { textDecoration: 'line-through' } : { textDecoration: 'none' }}
+                                rightIconButton={
+                                    <IconButton
+                                        onClick={() => props._deleteTaskAsyncAction(todo.key)}
+                                    >
+                                        <DeleteIcon />
+                                    </IconButton>
+                                }
+                            />
+                        )
+                        : null
+                }
+            </List>
+        </div>
     </div>
 )
 const mapStateToProps = state => ({

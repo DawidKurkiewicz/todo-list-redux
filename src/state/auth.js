@@ -5,8 +5,8 @@ import { getTasksListFromDbAsyncAction } from './toDo';
 
 const LOG_IN = 'auth/LOG_IN'
 const LOG_OUT = 'auth/LOG_OUT'
-const EMAIL_CHANGE = 'auth/EMAIL_CHANGE'
-const PASSWORD_CHANGE = 'auth/PASSWORD_CHANGE'
+// const EMAIL_CHANGE = 'auth/EMAIL_CHANGE'
+// const PASSWORD_CHANGE = 'auth/PASSWORD_CHANGE'
 
 
 export const initAuthChangeListeningAsyncAction = () => (dispatch, getState) => {
@@ -31,15 +31,15 @@ export const logOutAsyncAction = () => (dispatch, getState) => {
 export const logInByGoogleAsyncAction = () => (dispatch, getState) => {
     auth.signInWithPopup(googleProvider)
 }
-export const logInAsyncAction = () => (dispatch, getState) => {
-    const { auth: {email, password }} = getState()
+// export const logInAsyncAction = () => (dispatch, getState) => {
+//     const { auth: {email, password }} = getState()
 
-    auth.signInWithEmailAndPassword(email, password)
-        .catch(error => {
-            alert('Something is wrong! Check console for error details!')
-            console.log(error)
-        })
-}
+//     auth.signInWithEmailAndPassword(email, password)
+//         .catch(error => {
+//             alert('Something is wrong! Check console for error details!')
+//             console.log(error)
+//         })
+// }
 
 const logInAction = user => ({
     type: LOG_IN,
@@ -52,20 +52,20 @@ const logOutAction = user => ({
 })
 
 
-export const emailChangeAction = newValue => ({
-    type: EMAIL_CHANGE,
-    newValue
-})
-export const passwordChangeAction = newValue => ({
-    type: PASSWORD_CHANGE,
-    newValue
-})
+// export const emailChangeAction = newValue => ({
+//     type: EMAIL_CHANGE,
+//     newValue
+// })
+// export const passwordChangeAction = newValue => ({
+//     type: PASSWORD_CHANGE,
+//     newValue
+// })
 
 
 const INITIAL_STATE = {
     isUserLoggedIn: false,
-    email: '',
-    password: '',
+    // email: '',
+    // password: '',
     user: null
 }
 
@@ -83,16 +83,16 @@ export default (state = INITIAL_STATE, action) => {
                 isUserLoggedIn: false,
                 user: null
             }
-        case EMAIL_CHANGE:
-            return {
-                ...state,
-                email: action.newValue
-            }
-        case PASSWORD_CHANGE:
-            return {
-                ...state,
-                password: action.newValue
-            }
+        // case EMAIL_CHANGE:
+        //     return {
+        //         ...state,
+        //         email: action.newValue
+        //     }
+        // case PASSWORD_CHANGE:
+        //     return {
+        //         ...state,
+        //         password: action.newValue
+        //     }
         default:
             return state
     }

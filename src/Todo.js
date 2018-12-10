@@ -9,22 +9,18 @@ import {
 import { List, ListItem } from 'material-ui/List'
 import DeleteIcon from 'material-ui/svg-icons/action/delete'
 import IconButton from 'material-ui/IconButton'
+import AddTask from './AddTask';
+
 
 
 
 
 const ToDo = props => (
     <div>
-        <TextField
-            hintText='Add task'
-            value={props._newToDo}
-            onChange={props._addTaskInputChangeAction}
-        />
-        <RaisedButton
-            label='Add task'
-            primary={true}
-            onClick={props._addNewTaskToDbAsyncAction}
-
+        <AddTask
+            OnTextHandler={props._addTaskInputChangeAction}
+            OnChangeTextHandler={props._newToDo}
+            OnClickHandler = {props._addNewTaskToDbAsyncAction}
         />
         <TextField
             hintText='Find task'

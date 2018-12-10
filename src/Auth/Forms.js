@@ -10,8 +10,12 @@ const Forms = (props) => (
       padding: 20
     }}
   >
-    <h2>Log in!</h2>
-    <TextField
+    <h2 style ={ 
+      {display: 'flex',
+      justifyContent: 'center'
+  }}
+  >Log in!</h2>
+    {/* <TextField
       name="email"
       type="email"
       floatingLabelText="E-mail"
@@ -33,7 +37,7 @@ const Forms = (props) => (
       primary={true}
       onClick={props.onLogInClick}
       fullWidth={true}
-    />
+    /> */}
     <RaisedButton
       style={{ margin: '5px 0' }}
       label={'Log in by Google'}

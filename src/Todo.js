@@ -32,6 +32,8 @@ const ToDo = props => (
             onClick={props._addNewTaskToDbAsyncAction}
 
         />
+        < br />
+
         <TextField
             style={style}
 
@@ -39,6 +41,7 @@ const ToDo = props => (
             onChange={props._filterInputChangeAction}
 
         />
+        < br />
         <RaisedButton
             style={style}
 
@@ -47,6 +50,7 @@ const ToDo = props => (
             onClick={props._showAllAction}
 
         />
+
         <RaisedButton
             style={style}
 
@@ -55,6 +59,7 @@ const ToDo = props => (
             onClick={props._showUncompletedAction}
 
         />
+
         <RaisedButton
             style={style}
 

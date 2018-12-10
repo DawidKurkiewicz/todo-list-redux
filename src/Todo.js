@@ -9,37 +9,55 @@ import {
 import { List, ListItem } from 'material-ui/List'
 import DeleteIcon from 'material-ui/svg-icons/action/delete'
 import IconButton from 'material-ui/IconButton'
-import AddTask from './AddTask';
 
 
-
+const style = {
+    margin: '10px',
+}
 
 
 const ToDo = props => (
     <div>
-        <AddTask
-            OnTextHandler={props._addTaskInputChangeAction}
-            OnChangeTextHandler={props._newToDo}
-            OnClickHandler = {props._addNewTaskToDbAsyncAction}
+        <TextField
+            style={style}
+            hintText='Add task'
+            value={props._newToDo}
+            onChange={props._addTaskInputChangeAction}
+        />
+        <RaisedButton
+            style={style}
+
+            label='Add task'
+            primary={true}
+            onClick={props._addNewTaskToDbAsyncAction}
+
         />
         <TextField
+            style={style}
+
             hintText='Find task'
             onChange={props._filterInputChangeAction}
 
         />
         <RaisedButton
+            style={style}
+
             label='All tasks'
             primary={true}
             onClick={props._showAllAction}
 
         />
         <RaisedButton
+            style={style}
+
             label='Uncompleted tasks'
             primary={true}
             onClick={props._showUncompletedAction}
 
         />
         <RaisedButton
+            style={style}
+
             label='Completed tasks'
             primary={true}
             onClick={props._showCompletedAction}
